@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <!-- <base href="/threeJs-manual/"> -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: "Three.js 通关秘籍",
+        repo: "",
+        loadSidebar: true,
+        // basePath: "/threeJs-manual/",
+        plugins: [
+          function (hook, vm) {
+            hook.afterEach(function (html) {
+              const currentPath = location.hash.substr(1); // 当前文章路径
+              // 保存当前文章到 localStorage
+              localStorage.setItem("lastReadArticle", currentPath);
+
+              window.scrollTo(0, 0);
+
+              // console.log("html", html);
+            });
+          },
+        ],
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  </body>
+</html>
