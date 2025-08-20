@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 暴露端口
-EXPOSE 8088
+EXPOSE 80
 
 # 启动命令：用 npx serve 启动当前目录
-CMD ["npx", "serve", ".", "-l", "8088"]
+CMD ["npx", "serve", ".", "-l", "80"]
