@@ -1,0 +1,15 @@
+{
+  "name": "threejs-manual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:image": "docker build -t threejs-manual .",
+    "run:image": "docker run -p 4000:80 threejs-manual",
+    "release": "node release.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0"
+}

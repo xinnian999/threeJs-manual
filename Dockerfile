@@ -1,14 +1,10 @@
-# 使用轻量级 Node 镜像，因为 npx serve 依赖 Node
-FROM crpi-a7p27yxlrmekg1a3.cn-beijing.personal.cr.aliyuncs.com/elin-common/node-18
+FROM crpi-a7p27yxlrmekg1a3.cn-beijing.personal.cr.aliyuncs.com/elin-common/nginx:latest AS deploy
 
-# 设置工作目录
-WORKDIR /app
+# 将构建好的静态文件复制到 nginx 默认路径
+COPY . /usr/share/nginx/html
 
-# 复制整个项目到镜像
-COPY . .
-
-# 暴露端口
+# 暴露 80 端口
 EXPOSE 80
 
-# 启动命令：用 npx serve 启动当前目录
-CMD ["npx", "serve", ".", "-l", "80"]
+# 启动 nginx
+CMD ["nginx", "-g", "daemon off;"]
